@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(sp.constitution)",
+      "Bash(if [ -d \"history/prompts/constitution\" ])",
+      "Bash(then ls history/prompts/constitution/)",
+      "Bash(else echo 0)",
+      "Bash(fi)",
+      "Bash(if [ -d \"history/prompts/general\" ])",
+      "Bash(then ls history/prompts/general/)",
+      "Bash(if [ -f \".specify/scripts/powershell/setup-plan.ps1\" ]:*)",
+      "Bash(then pwsh -File .specify/scripts/powershell/setup-plan.ps1 -Json)",
+      "Bash(else echo '{\"\"FEATURE_SPEC\"\":\"\"specs/todo-manager/spec.md\"\", \"\"IMPL_PLAN\"\":\"\"specs/todo-manager/plan.md\"\", \"\"SPECS_DIR\"\":\"\"specs\"\", \"\"BRANCH\"\":\"\"1-physical-ai-textbook\"\"}')",
+      "Bash(if [ -d \"history/prompts/todo-manager\" ]:*)",
+      "Bash(then ls history/prompts/todo-manager/)",
+      "Bash(python test_us1.py)",
+      "Bash(python test_us2.py)",
+      "Bash(python test_us3.py)",
+      "Bash(python test_us4.py)",
+      "Bash(python test_us5.py)",
+      "Bash(python test_us6.py)",
+      "Bash(python final_test.py)"
+    ]
+  }
+}
