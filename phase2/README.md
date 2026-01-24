@@ -181,6 +181,24 @@ The project follows a spec-driven development approach with the following workfl
 
 ## Deployment
 
+### GitHub Pages Deployment
+
+This application is configured for deployment to GitHub Pages:
+
+1. The frontend is configured for static export in `next.config.ts`
+2. A GitHub Actions workflow is set up in `.github/workflows/github-pages.yml`
+3. Once you push to the `main` branch, the workflow will automatically build and deploy the frontend to GitHub Pages
+
+To configure GitHub Pages deployment:
+1. Go to your repository settings
+2. Navigate to "Pages" section
+3. Select "GitHub Actions" as the source
+4. Your site will be deployed to `https://<username>.github.io/<repository-name>/`
+
+Note: For full functionality, you'll need to deploy the backend separately and update the `NEXT_PUBLIC_API_URL` in `.env.production` to point to your live backend API.
+
+### Self-Hosting
+
 For production deployment:
 1. Set up Neon Serverless PostgreSQL
 2. Configure environment variables securely
