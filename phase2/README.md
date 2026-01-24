@@ -193,7 +193,7 @@ To configure GitHub Pages deployment:
 1. Go to your repository settings
 2. Navigate to "Pages" section
 3. Under "Source", select "Deploy from a branch"
-4. Select "gh-pages" as the branch and "/ (root)" as the folder
+4. Select "main" as the branch and "/docs" as the folder
 5. Your site will be deployed to `https://<username>.github.io/<repository-name>/`
 
 Note: For full functionality, you'll need to deploy the backend separately (to Heroku, Railway, or similar) and update the `NEXT_PUBLIC_API_URL` in `.env.production` to point to your live backend API. The GitHub Pages frontend will communicate with your external backend API.
