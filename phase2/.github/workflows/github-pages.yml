@@ -1,9 +1,12 @@
-name: Deploy to GitHub Pages
+name: Build and Deploy
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
@@ -32,9 +35,14 @@ jobs:
         run: npm run export
         working-directory: ./phase2/frontend
 
+      - name: Move files to docs
+        run: |
+          mkdir -p docs
+          cp -r ./phase2/frontend/out/* docs/
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./phase2/frontend/out
-          publish_branch: gh-pages
+          publish_dir: ./docs
+          publish_branch: main
