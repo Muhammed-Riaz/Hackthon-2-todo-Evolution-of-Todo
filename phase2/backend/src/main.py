@@ -7,12 +7,8 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 
-# Use relative imports when running from backend directory
-try:
-    from .api.v1.routes import tasks, auth
-except ImportError:
-    # Fallback to absolute imports when running from project root
-    from backend.src.api.v1.routes import tasks, auth
+# Use relative imports for the routes
+from .api.v1.routes import tasks, auth
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)

@@ -6,8 +6,8 @@ from sqlmodel import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 from typing import List, Optional
-from backend.src.models.task_model import Task, TaskBase
-from backend.src.schemas.task_schemas import TaskCreate, TaskUpdate
+from ..models.task_model import Task, TaskBase
+from ..schemas.task_schemas import TaskCreate, TaskUpdate
 
 
 async def create_task(session: AsyncSession, task_create: TaskCreate) -> Task:

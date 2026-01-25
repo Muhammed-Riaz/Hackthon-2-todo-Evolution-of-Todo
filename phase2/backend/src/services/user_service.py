@@ -8,8 +8,8 @@ from sqlalchemy.future import select
 from typing import Optional
 from passlib.context import CryptContext
 
-from backend.src.models.user_model import User
-from backend.src.schemas.auth_schemas import UserCreate
+from ..models.user_model import User
+from ..schemas.auth_schemas import UserCreate
 
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")

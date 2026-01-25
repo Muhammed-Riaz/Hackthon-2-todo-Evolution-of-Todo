@@ -8,13 +8,13 @@ from typing import Optional
 
 from sqlalchemy.ext.asyncio import AsyncSession
 from pydantic import BaseModel
-from backend.src.database.database import get_async_session
-from backend.src.models.user_model import User
-from backend.src.schemas.auth_schemas import UserCreate, UserResponse, TokenResponse
-from backend.src.services.user_service import create_user, authenticate_user
-from backend.src.auth.jwt import create_access_token
-from backend.src.core.config import get_settings
-from backend.src.auth.dependencies import get_current_user_id
+from ....database.database import get_async_session
+from ....models.user_model import User
+from ....schemas.auth_schemas import UserCreate, UserResponse, TokenResponse
+from ....services.user_service import create_user, authenticate_user
+from ....auth.jwt import create_access_token
+from ....core.config import get_settings
+from ....auth.dependencies import get_current_user_id
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
 
