@@ -12,7 +12,7 @@ A modern, secure, multi-user todo application built with Next.js, FastAPI, and P
 
 ## Tech Stack
 
-- **Frontend**: Next.js 16+ with App Router
+- **Frontend**: Next.js 14.2+ with App Router
 - **Backend**: Python FastAPI
 - **ORM**: SQLModel
 - **Database**: Neon Serverless PostgreSQL
