@@ -59,10 +59,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
         // If not in localStorage, try to get from cookie
         if (!storedToken) {
-          storedToken = document.cookie
+          const cookieValue = document.cookie
             .split('; ')
-            .find(row => row.startsWith('auth_token='))
-            ?.split('=')[1];
+            .find(row => row.startsWith('auth_token='));
+          storedToken = cookieValue ? cookieValue.split('=')[1] : null;
         }
 
         if (!storedUser && storedToken) {
