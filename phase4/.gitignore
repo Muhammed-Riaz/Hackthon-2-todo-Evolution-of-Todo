@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -160,18 +157,8 @@ desktop.ini
 # Database file
 todo_app.db
 
-# History folder - only ignore if in root, not in subdirectories
-/history/
-
-# Ignore phase4 directory
-
-
-# Ignore virtual environments and build directories in phase3
-phase3/backend/.venv/
-phase3/backend/venv/
-phase3/backend/__pycache__/
-phase3/frontend/node_modules/
-phase3/frontend/.next/
+# History folder if it contains temporary or generated files
+history/
 
 # Backend specific ignores
 backend/__pycache__/
@@ -198,30 +185,3 @@ frontend/logs
 # Local configuration files
 config.local
 *.local
-
-# Ignore all node_modules directories
-**/node_modules/
-
-# Ignore all .next directories
-**/.next/
-
-# Ignore all __pycache__ directories
-**/__pycache__/
-
-# Ignore all .pyc files
-**/*.pyc
-
-# Ignore all .env files
-**/.env
-**/.env.*
-
-# Ignore all venv directories
-**/venv/
-**/.venv/
-
-# Ignore all .DS_Store files
-**/.DS_Store
-
-# Ignore all .git folders inside subdirectories (if any)
-**/.git/
->>>>>>> dc205be8c9e0973b439e60342614f8b2acdc4820

@@ -1,0 +1,64 @@
+project:
+  name: "Todo Evolution of Todo - Full Stack Application"
+  description: "A modern, secure, multi-user todo application built with Next.js, FastAPI, and PostgreSQL."
+  output_dir: "build"
+
+structure:
+  - type: "module"
+    id: "01-frontend"
+    title: "Module 1: Frontend (Next.js 16+ with App Router)"
+    path: "phase2/frontend"
+    weeks: [1, 2]
+  - type: "module"
+    id: "02-backend"
+    title: "Module 2: Backend (Python FastAPI with SQLModel)"
+    path: "phase2/backend"
+    weeks: [3, 4]
+  - type: "module"
+    id: "03-database"
+    title: "Module 3: Database (Neon Serverless PostgreSQL)"
+    path: "phase2/backend/database.py"
+    weeks: [5]
+  - type: "module"
+    id: "04-auth"
+    title: "Module 4: Authentication (JWT Tokens)"
+    path: "phase2/backend/src/auth"
+    weeks: [6]
+  - type: "section"
+    id: "api-endpoints"
+    title: "API Endpoints & Routes"
+    path: "phase2/backend/api/v1"
+    weeks: [7]
+  - type: "section"
+    id: "frontend-components"
+    title: "Frontend Components & UI"
+    path: "phase2/frontend/components"
+    weeks: [8]
+  - type: "section"
+    id: "styling"
+    title: "Styling (Tailwind CSS)"
+    path: "phase2/frontend/app/globals.css"
+    weeks: [9]
+  - type: "section"
+    id: "deployment"
+    title: "Deployment Configuration"
+    path: "phase2/.github/workflows"
+  - type: "section"
+    id: "specs"
+    title: "Specifications & Documentation"
+    path: "phase2/specs"
+
+github_pages:
+  repository: "https://github.com/Muhammed-Riaz/Hackthon-2-todo-Evolution-of-Todo/tree/main/phase2"
+  branch: "gh-pages"
+
+authors:
+  - name: "Muhammed Riaz"
+    email: "noreply@example.com"
+
+build_tools:
+  - "cd phase2/frontend && npm install"
+  - "cd phase2/frontend && npm run build"
+  - "cd phase2/backend && pip install -r requirements.txt"
+
+preview_command: "cd phase2/frontend && npm run dev"
