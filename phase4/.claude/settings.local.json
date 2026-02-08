@@ -138,7 +138,10 @@
       "Bash(python:*)",
       "Bash(npm run dev:*)",
       "Bash(docker build -t todo-backend:latest .)",
-      "Bash(chmod:*)"
+      "Bash(chmod:*)",
+      "Bash(docker info:*)",
+      "Bash(docker pull:*)",
+      "Bash(nslookup:*)"
     ]
   }
 }
