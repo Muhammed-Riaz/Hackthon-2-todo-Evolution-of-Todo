@@ -1,1 +1,227 @@
+<<<<<<< HEAD
 /phase4
+=======
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# C extensions
+*.o
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+#   For a library or package, you might want to ignore these files since the code is
+#   intended to run in multiple environments; otherwise, check them in:
+.python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, if you have a good reason to ignore it, uncomment the line below.
+# Pipfile.lock
+
+# poetry
+#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
+#   This is especially recommended for binary packages to ensure reproducibility and prevent
+#   potential issues.
+# poetry.lock
+
+# pdm
+#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
+#
+# pdm.lock
+# .pdm-python
+# .pdm.toml
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Database file
+todo_app.db
+
+# History folder - only ignore if in root, not in subdirectories
+/history/
+
+# Ignore phase4 directory
+phase4/
+
+# Ignore virtual environments and build directories in phase3
+phase3/backend/.venv/
+phase3/backend/venv/
+phase3/backend/__pycache__/
+phase3/frontend/node_modules/
+phase3/frontend/.next/
+
+# Backend specific ignores
+backend/__pycache__/
+backend/.venv/
+backend/venv/
+backend/.env
+
+# Frontend specific ignores (if using Node.js/npm)
+frontend/node_modules/
+frontend/.next/
+frontend/dist/
+frontend/build/
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+frontend/logs
+
+# Local configuration files
+config.local
+*.local
+
+# Ignore all node_modules directories
+**/node_modules/
+
+# Ignore all .next directories
+**/.next/
+
+# Ignore all __pycache__ directories
+**/__pycache__/
+
+# Ignore all .pyc files
+**/*.pyc
+
+# Ignore all .env files
+**/.env
+**/.env.*
+
+# Ignore all venv directories
+**/venv/
+**/.venv/
+
+# Ignore all .DS_Store files
+**/.DS_Store
+
+# Ignore all .git folders inside subdirectories (if any)
+**/.git/
+>>>>>>> dc205be8c9e0973b439e60342614f8b2acdc4820
