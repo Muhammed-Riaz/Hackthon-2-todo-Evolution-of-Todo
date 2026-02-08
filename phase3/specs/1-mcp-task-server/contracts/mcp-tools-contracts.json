@@ -1,0 +1,279 @@
+# API Contracts: MCP Task Server
+
+**Date**: 2026-02-03
+**Feature**: MCP Task Server (Task Operations as Tools)
+
+## MCP Tool Specifications
+
+### add_task
+**Purpose**: Create a new todo item
+
+**Input Schema**:
+```json
+{
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "description": "The ID of the user creating the task"
+    },
+    "title": {
+      "type": "string",
+      "description": "The title of the task"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional description of the task",
+      "nullable": true
+    }
+  },
+  "required": ["user_id", "title"],
+  "additionalProperties": false
+}
+```
+
+**Output Schema**:
+```json
+{
+  "type": "object",
+  "properties": {
+    "task_id": {
+      "type": "integer",
+      "description": "The ID of the newly created task"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["created"]
+    },
+    "title": {
+      "type": "string",
+      "description": "The title of the created task"
+    }
+  },
+  "required": ["task_id", "status", "title"],
+  "additionalProperties": false
+}
+```
+
+**Behavior**:
+- Inserts task into database with completed=false
+- Validates that user_id corresponds to an existing user
+- Returns the created task's ID and status
+
+### list_tasks
+**Purpose**: Retrieve todos for a user
+
+**Input Schema**:
+```json
+{
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "description": "The ID of the user whose tasks to retrieve"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["all", "pending", "completed"],
+      "description": "Filter tasks by completion status",
+      "default": "all"
+    }
+  },
+  "required": ["user_id"],
+  "additionalProperties": false
+}
+```
+
+**Output Schema**:
+```json
+{
+  "type": "object",
+  "properties": {
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "completed": {
+            "type": "boolean"
+          }
+        },
+        "required": ["id", "title", "completed"]
+      }
+    }
+  },
+  "required": ["tasks"],
+  "additionalProperties": false
+}
+```
+
+**Behavior**:
+- Filters tasks by user_id
+- Applies completion filter if provided
+- Returns array of task objects with id, title, and completed status
+
+### complete_task
+**Purpose**: Mark a task as completed
+
+**Input Schema**:
+```json
+{
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "description": "The ID of the user who owns the task"
+    },
+    "task_id": {
+      "type": "integer",
+      "description": "The ID of the task to complete"
+    }
+  },
+  "required": ["user_id", "task_id"],
+  "additionalProperties": false
+}
+```
+
+**Output Schema**:
+```json
+{
+  "type": "object",
+  "properties": {
+    "task_id": {
+      "type": "integer",
+      "description": "The ID of the completed task"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["completed"]
+    },
+    "title": {
+      "type": "string",
+      "description": "The title of the completed task"
+    }
+  },
+  "required": ["task_id", "status", "title"],
+  "additionalProperties": false
+}
+```
+
+**Behavior**:
+- Verifies task ownership by checking that user_id matches task's user_id
+- Sets completed = true on the task
+- Returns confirmation with task details
+
+### update_task
+**Purpose**: Update task title and/or description
+
+**Input Schema**:
+```json
+{
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "description": "The ID of the user who owns the task"
+    },
+    "task_id": {
+      "type": "integer",
+      "description": "The ID of the task to update"
+    },
+    "title": {
+      "type": "string",
+      "description": "New title for the task (optional)",
+      "nullable": true
+    },
+    "description": {
+      "type": "string",
+      "description": "New description for the task (optional)",
+      "nullable": true
+    }
+  },
+  "required": ["user_id", "task_id"],
+  "additionalProperties": false
+}
+```
+
+**Output Schema**:
+```json
+{
+  "type": "object",
+  "properties": {
+    "task_id": {
+      "type": "integer",
+      "description": "The ID of the updated task"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["updated"]
+    },
+    "title": {
+      "type": "string",
+      "description": "The updated title of the task"
+    }
+  },
+  "required": ["task_id", "status", "title"],
+  "additionalProperties": false
+}
+```
+
+**Behavior**:
+- Verifies task ownership by checking that user_id matches task's user_id
+- Updates provided fields only (partial update)
+- Returns confirmation with updated task details
+
+### delete_task
+**Purpose**: Remove a task
+
+**Input Schema**:
+```json
+{
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "description": "The ID of the user who owns the task"
+    },
+    "task_id": {
+      "type": "integer",
+      "description": "The ID of the task to delete"
+    }
+  },
+  "required": ["user_id", "task_id"],
+  "additionalProperties": false
+}
+```
+
+**Output Schema**:
+```json
+{
+  "type": "object",
+  "properties": {
+    "task_id": {
+      "type": "integer",
+      "description": "The ID of the deleted task"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["deleted"]
+    },
+    "title": {
+      "type": "string",
+      "description": "The title of the deleted task"
+    }
+  },
+  "required": ["task_id", "status", "title"],
+  "additionalProperties": false
+}
+```
+
+**Behavior**:
+- Verifies task ownership by checking that user_id matches task's user_id
+- Deletes task from database permanently
+- Returns confirmation with deleted task details

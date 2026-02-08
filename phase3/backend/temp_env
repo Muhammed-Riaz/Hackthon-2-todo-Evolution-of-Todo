@@ -1,0 +1,10 @@
+# Database Configuration - Neon PostgreSQL
+DATABASE_URL=postgresql://neondb_owner:npg_KzNuXVCp2RB5@ep-dark-union-ahj01ro8-pooler.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require
+
+# Environment
+ENVIRONMENT=production
+
+# Security - Generate a strong secret key
+SECRET_KEY=n34_axppdz3mO2qxH5jUdwXj0JFzj09logjcHZfzfLs
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=10080
