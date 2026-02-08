@@ -157,8 +157,18 @@ desktop.ini
 # Database file
 todo_app.db
 
-# History folder if it contains temporary or generated files
-history/
+# History folder - only ignore if in root, not in subdirectories
+/history/
+
+# Ignore phase4 directory
+phase4/
+
+# Ignore virtual environments and build directories in phase3
+phase3/backend/.venv/
+phase3/backend/venv/
+phase3/backend/__pycache__/
+phase3/frontend/node_modules/
+phase3/frontend/.next/
 
 # Backend specific ignores
 backend/__pycache__/
@@ -209,5 +219,5 @@ config.local
 # Ignore all .DS_Store files
 **/.DS_Store
 
-# Phase 4 ignore
-phase4/
+# Ignore all .git folders inside subdirectories (if any)
+**/.git/
