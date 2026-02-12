@@ -13,10 +13,22 @@ from src.api.v1.routes import tasks, auth, chat
 
 app = FastAPI(title="Todo API", version="1.0.0")
 
-# CORS middleware - in production, restrict origins
+# CORS middleware - Allow production and development origins
+allowed_origins = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://localhost:3001",
+    "http://127.0.0.1:3001",
+    "https://hackthon-2-todo-evolution-of-todo-b.vercel.app",  # Your Vercel production URL
+]
+
+# In development, allow all origins for testing
+if os.getenv("ENVIRONMENT") == "development":
+    allowed_origins = ["*"]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000", "http://localhost:3001", "http://127.0.0.1:3001"],  # Allow frontend origins
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
